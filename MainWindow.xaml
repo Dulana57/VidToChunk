@@ -1,0 +1,180 @@
+﻿<Window x:Class="VidToChunk.MainWindow"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VidToChunk"
+        mc:Ignorable="d"
+        Title="VidToChunk" Height="315" Width="650"  BorderThickness="20">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="50" GlassFrameThickness="0" CornerRadius="0" UseAeroCaptionButtons="False" ResizeBorderThickness="7"/>
+    </WindowChrome.WindowChrome>
+    <Window.Effect>
+        <DropShadowEffect Color="Black" Opacity="0.5" BlurRadius="20" Direction="0" RenderingBias="Quality" ShadowDepth="2"/>
+    </Window.Effect>
+
+    <Grid Background="#FF323232">
+        <Grid VerticalAlignment="Top" Background="#FF0A0A0A" Grid.ColumnSpan="3">
+            <StackPanel Height="30" WindowChrome.IsHitTestVisibleInChrome="True" VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button Width="45" Content="&#xE949;"  x:Name="MinimizeButton" Focusable="False" FontFamily="Segoe MDL2 Assets">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#FF0A0A0A"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                            <Setter Property="Foreground" Value="#FFF1F1F1"/>
+                            <Setter Property="FontSize" Value="10"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FF3C3C3C"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="#FF555555"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Width="45" Content="&#xE106;"  x:Name="CloseButton" Focusable="False"  FontFamily="Segoe MDL2 Assets">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#FF0A0A0A"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                            <Setter Property="Foreground" Value="#FFF1F1F1"/>
+                            <Setter Property="FontSize" Value="10"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FFE81123"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="#FF9E0C16"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+            <Image HorizontalAlignment="Left" Height="20" Width="20" Margin="4,4,0,0" VerticalAlignment="Top" Source="iconpng.png"/>
+            <TextBlock HorizontalAlignment="Left" Margin="28,9,0,0" TextWrapping="Wrap" Text="VidToChunk" VerticalAlignment="Top" Foreground="#FFF1F1F1" RenderTransformOrigin="0.5,0.5" FontFamily="/Fonts/Poppins-Medium.ttf #Poppins">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="-1"/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+        </Grid>
+        <Grid Margin="5,100,5,5" Background="#FF141414">
+            <Button x:Name="btn_run" Content="Convert to Chunk" Margin="240,120,240,0" Height="26" Click="btn_run_Click" HorizontalAlignment="Center" Width="120" IsEnabled="False" VerticalAlignment="Top">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#FF323232"/>
+                        <Setter Property="BorderBrush" Value="Black"/>
+                        <Setter Property="Foreground" Value="#FFF1F1F1"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FF6C6C6C"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#FF5A5A5A"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="#FFA2A2A2"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <TextBlock Margin="50,15,0,0" TextWrapping="Wrap" Text="Input File" Foreground="#FFF1F1F1" FontSize="14" Height="20" FontWeight="Bold" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtb_inputpath" Height="20" Margin="50,35,121,0" TextWrapping="Wrap" Text="" Background="#FF141414" BorderBrush="#FF323232" Foreground="#FFF1F1F1" IsEnabled="False" VerticalAlignment="Top"/>
+            <Button x:Name="btn_inputchoose" Content="Choose..." Margin="0,35,50,0" Height="20" HorizontalAlignment="Right" Width="66" Click="btn_inputchoose_Click" VerticalAlignment="Top">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#FF323232"/>
+                        <Setter Property="BorderBrush" Value="Black"/>
+                        <Setter Property="Foreground" Value="#FFF1F1F1"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FF6C6C6C"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#FF5A5A5A"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="#FFA2A2A2"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <TextBox x:Name="txtb_outputpath" Height="20" Margin="50,80,121,0" TextWrapping="Wrap" Text="" Background="#FF141414" BorderBrush="#FF323232" Foreground="#FFF1F1F1" VerticalAlignment="Top" IsEnabled="False"/>
+            <Button x:Name="btn_outputchoose" Content="Choose..." Margin="0,80,50,0" Height="20" HorizontalAlignment="Right" Width="66" Click="btn_outputchoose_Click" VerticalAlignment="Top">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#FF323232"/>
+                        <Setter Property="BorderBrush" Value="Black"/>
+                        <Setter Property="Foreground" Value="#FFF1F1F1"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FF6C6C6C"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#FF5A5A5A"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="#FFA2A2A2"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <TextBlock Margin="50,60,0,0" TextWrapping="Wrap" Text="Output File" Foreground="#FFF1F1F1" FontSize="14" Height="20" FontWeight="Bold" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtb_filesize" Height="20" Margin="475,0,5,5" TextWrapping="Wrap" Text="" Background="#FF141414" BorderBrush="#FF323232" Foreground="#FFF1F1F1" VerticalAlignment="Bottom" IsReadOnly="True"/>
+            <TextBlock Margin="475,0,5,26" TextWrapping="Wrap" Text="Output File Size" Foreground="#FFF1F1F1" Height="18" VerticalAlignment="Bottom" TextAlignment="Center"/>
+        </Grid>
+        <Grid Margin="145,35,145,176" Width="320">
+            <TextBlock TextWrapping="Wrap" Text="VidToChunk" VerticalAlignment="Top" Foreground="White" FontSize="42" FontWeight="Bold" FontFamily="Arial" Margin="67,8,0,0"/>
+            <Image HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Source="iconpnglarge.png" Margin="4,1,0,0"/>
+        </Grid>
+    </Grid>
+</Window>
