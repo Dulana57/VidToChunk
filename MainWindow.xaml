@@ -176,5 +176,7 @@
             <TextBlock TextWrapping="Wrap" Text="VidToChunk" VerticalAlignment="Top" Foreground="White" FontSize="42" FontWeight="Bold" FontFamily="Arial" Margin="67,8,0,0"/>
             <Image HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Source="iconpnglarge.png" Margin="4,1,0,0"/>
         </Grid>
+        <TextBlock Margin="345,81,145,0" TextWrapping="Wrap" Text="Created by Dulana57" Foreground="#FFF1F1F1" Height="18" VerticalAlignment="Top" TextAlignment="Right" FontSize="10"/>
+        <TextBlock Name="txt_Version" Margin="457,70,118,0" TextWrapping="Wrap" Text="vx.x.x" Foreground="#FFF1F1F1" Height="18" VerticalAlignment="Top" FontWeight="Bold" FontSize="11" Width="35"/>
     </Grid>
 </Window>

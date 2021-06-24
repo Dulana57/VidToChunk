@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows;
 using System.Diagnostics;
 using Microsoft.Win32;
+using System.Reflection;
 
 namespace VidToChunk {
     /// <summary>
@@ -16,6 +17,8 @@ namespace VidToChunk {
             InitializeComponent();
             MinimizeButton.Click += (s, e) => WindowState = WindowState.Minimized;
             CloseButton.Click += (s, e) => Application.Current.Shutdown();
+            string version = Assembly.GetExecutingAssembly().GetName().Version.ToString().Substring(0, 5);
+            txt_Version.Text = "v" + version;
         }
 
         private void btn_run_Click(object sender, RoutedEventArgs e) {
