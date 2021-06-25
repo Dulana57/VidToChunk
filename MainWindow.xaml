@@ -84,7 +84,7 @@
             </TextBlock>
         </Grid>
         <Grid Margin="5,100,5,5" Background="#FF141414">
-            <Button x:Name="btn_run" Content="Convert to Chunk" Margin="240,120,240,0" Height="26" Click="btn_run_Click" HorizontalAlignment="Center" Width="120" IsEnabled="False" VerticalAlignment="Top">
+            <Button x:Name="btn_run" Content="Convert to Chunk" Margin="240,120,240,24" Height="26" Click="btn_run_Click" HorizontalAlignment="Center" Width="120" IsEnabled="False" VerticalAlignment="Bottom">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="Background" Value="#FF323232"/>
@@ -113,7 +113,7 @@
             </Button>
             <TextBlock Margin="50,15,0,0" TextWrapping="Wrap" Text="Input File" Foreground="#FFF1F1F1" FontSize="14" Height="20" FontWeight="Bold" VerticalAlignment="Top"/>
             <TextBox x:Name="txtb_inputpath" Height="20" Margin="50,35,121,0" TextWrapping="Wrap" Text="" Background="#FF141414" BorderBrush="#FF323232" Foreground="#FFF1F1F1" IsEnabled="False" VerticalAlignment="Top"/>
-            <Button x:Name="btn_inputchoose" Content="Choose..." Margin="0,35,50,0" Height="20" HorizontalAlignment="Right" Width="66" Click="btn_inputchoose_Click" VerticalAlignment="Top">
+            <Button x:Name="btn_inputchoose" Content="Select..." Margin="0,35,50,0" Height="20" HorizontalAlignment="Right" Width="66" Click="btn_inputchoose_Click" VerticalAlignment="Top">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="Background" Value="#FF323232"/>
@@ -141,7 +141,7 @@
                 </Button.Template>
             </Button>
             <TextBox x:Name="txtb_outputpath" Height="20" Margin="50,80,121,0" TextWrapping="Wrap" Text="" Background="#FF141414" BorderBrush="#FF323232" Foreground="#FFF1F1F1" VerticalAlignment="Top" IsEnabled="False"/>
-            <Button x:Name="btn_outputchoose" Content="Choose..." Margin="0,80,50,0" Height="20" HorizontalAlignment="Right" Width="66" Click="btn_outputchoose_Click" VerticalAlignment="Top">
+            <Button x:Name="btn_outputchoose" Content="Save As..." Margin="0,80,50,0" Height="20" HorizontalAlignment="Right" Width="66" Click="btn_outputchoose_Click" VerticalAlignment="Top">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="Background" Value="#FF323232"/>
