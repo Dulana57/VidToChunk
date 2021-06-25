@@ -25,7 +25,7 @@ namespace VidToChunk {
             Process process = new Process();
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.FileName = "cmd.exe";
-            startInfo.Arguments = "/K ffmpeg -i \"" + inputfile + "\" -c:v libvpx-vp9 -crf 30 -b:v 0 -b:a 128k -c:a libopus \"" + outputfile.Replace(".chunk", ".webm") + "\"";
+            startInfo.Arguments = "/C ffmpeg -i \"" + inputfile + "\" -c:v libvpx-vp9 -crf 30 -b:v 0 -b:a 128k -c:a libopus \"" + outputfile.Replace(".chunk", ".webm") + "\"";
             process.StartInfo = startInfo;
             process.Start();
             process.WaitForExit();
