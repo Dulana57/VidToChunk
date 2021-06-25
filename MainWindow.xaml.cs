@@ -12,6 +12,7 @@ namespace VidToChunk {
     public partial class MainWindow : Window {
         string inputfile;
         string outputfile;
+        string quality;
 
         public MainWindow() {
             InitializeComponent();
@@ -22,10 +23,14 @@ namespace VidToChunk {
         }
 
         private void btn_run_Click(object sender, RoutedEventArgs e) {
+            if (combo_quality.SelectedIndex == 0) quality = "4";
+            if (combo_quality.SelectedIndex == 1) quality = "20";
+            if (combo_quality.SelectedIndex == 2) quality = "50";
+            if (combo_quality.SelectedIndex == 3) quality = "63";
             Process process = new Process();
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.FileName = "cmd.exe";
-            startInfo.Arguments = "/C ffmpeg -i \"" + inputfile + "\" -c:v libvpx -crf 30 -b:v 1M -c:a libvorbis \"" + outputfile.Replace(".chunk", ".webm") + "\"";
+            startInfo.Arguments = "/C ffmpeg -i \"" + inputfile + "\" -c:v libvpx -crf " + quality + " -b:v 1M -c:a libvorbis \"" + outputfile.Replace(".chunk", ".webm") + "\"";
             process.StartInfo = startInfo;
             process.Start();
             process.WaitForExit();
